@@ -1,14 +1,16 @@
-import axios from 'axios';
-import { Formatter } from 'utils/formatter';
+import axios from "axios";
+import { Formatter } from "utils/formatter";
 
 export const stockingAPIInstance = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: "http://localhost:3001",
 });
 
 export class StockingAPI {
   static async fetchQuote(stockName: string) {
     try {
-      const { data } = await stockingAPIInstance.get<Quote>(`/stock/${stockName}/quote`);
+      const { data } = await stockingAPIInstance.get<Quote>(
+        `/stocks/${stockName}/quote`
+      );
       return data;
     } catch (error: any) {
       if (error?.response?.status) throw new StockNotFoundError(stockName);
@@ -16,7 +18,11 @@ export class StockingAPI {
     }
   }
 
-  static async fetchHistory(stockName: string, initialDate: Date, finalDate: Date) {
+  static async fetchHistory(
+    stockName: string,
+    initialDate: Date,
+    finalDate: Date
+  ) {
     try {
       const from = Formatter.isoText(initialDate);
       const to = Formatter.isoText(finalDate);
@@ -29,7 +35,11 @@ export class StockingAPI {
     }
   }
 
-  static async fetchStockGains(stockName: string, purchasedAt: Date, amount: number) {
+  static async fetchStockGains(
+    stockName: string,
+    purchasedAt: Date,
+    amount: number
+  ) {
     try {
       const purchasedAtTxt = Formatter.isoText(purchasedAt);
       const url = `/stocks/${stockName}/gains?purchasedAt=${purchasedAtTxt}&purchasedAmount=${amount}`;
@@ -41,9 +51,14 @@ export class StockingAPI {
     }
   }
 
-  static async fetchStockComparison(stockName: string, stocksToCompare: string[]) {
+  static async fetchStockComparison(
+    stockName: string,
+    stocksToCompare: string[]
+  ) {
     try {
       const url = `/stocks/${stockName}/compare`;
+      console.log(url);
+
       const { data } = await stockingAPIInstance.get<ComparisonResult>(url, {
         params: { stocksToCompare: stocksToCompare },
       });
