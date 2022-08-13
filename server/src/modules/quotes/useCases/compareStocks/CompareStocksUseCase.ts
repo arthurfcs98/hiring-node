@@ -22,6 +22,7 @@ class CompareStocksUseCase {
             .map(({ data }) => {
                 const quote = data['Global Quote'];
 
+                if (!quote) return;
                 if (!Object.keys(quote).length) return;
 
                 return {

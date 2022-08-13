@@ -14,7 +14,12 @@ class FetchStockUseCase {
             },
         });
 
-        if (!Object.keys(data).length) throw new AppError('Stock ');
+        if (!data)
+            throw new AppError(
+                'Cant connect with external API, wait and try again',
+            );
+        if (!Object.keys(data).length)
+            throw new AppError('Stock does not exists');
 
         const quote = {
             name: data['01. symbol'],
