@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { FetchQuoteController } from '../modules/quotes/useCases/fetchQuote/FetchQuoteController';
+import { FetchStockController } from '../modules/quotes/useCases/fetchQuote/FetchStockController';
 
 const quoteRouter = Router();
 
-const fetchQuoteController = new FetchQuoteController();
+const fetchStockController = new FetchStockController();
 
-quoteRouter.get('/:symbol/quote', fetchQuoteController.handle);
+quoteRouter.get('/:symbol/quote', fetchStockController.handle);
 
 export { quoteRouter };
