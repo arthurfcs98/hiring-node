@@ -1,19 +1,19 @@
 import { Request, Response } from 'express';
 import { AppError } from '../../../../shared/errors/AppError';
-import { FetchQuoteUseCase } from './FetchQuoteUseCase';
+import { FetchStockUseCase } from './FetchStockUseCase';
 
-class FetchQuoteController {
+class FetchStockController {
     async handle(request: Request, response: Response): Promise<Response> {
         const symbol = request.params.symbol;
 
         if (!symbol) throw new AppError('Missing Params');
 
-        const fetchQuoteUseCase = new FetchQuoteUseCase();
+        const fetchStockUseCase = new FetchStockUseCase();
 
-        const quote = await fetchQuoteUseCase.execute(symbol);
+        const quote = await fetchStockUseCase.execute(symbol);
 
         return response.json(quote);
     }
 }
 
-export { FetchQuoteController };
+export { FetchStockController };
