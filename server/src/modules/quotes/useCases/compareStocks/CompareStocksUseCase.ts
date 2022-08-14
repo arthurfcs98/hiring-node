@@ -7,7 +7,7 @@ class CompareStocksUseCase {
         symbol: string,
         symbolsToCompare: string[],
     ): Promise<IQuote[]> {
-        symbolsToCompare.push(symbol);
+        symbolsToCompare.unshift(symbol);
 
         const promisesQuote = symbolsToCompare.map(
             async symbol =>
