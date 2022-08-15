@@ -1,3 +1,4 @@
+import { AppError } from '../../../../shared/errors/AppError';
 import { stockApi } from '../../../../shared/stockApi/StockApi';
 import { IGlobalQuote } from '../../dtos/IGlobalQuote';
 import { IQuote } from '../../dtos/IQuote';
@@ -32,6 +33,8 @@ class CompareStocksUseCase {
                 } as IQuote;
             })
             .filter(arg => arg);
+
+        if (quotes.length < 2) throw new AppError('One Or More invalid Stock!');
 
         return quotes;
     }
