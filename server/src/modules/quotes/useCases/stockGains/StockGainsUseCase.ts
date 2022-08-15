@@ -29,8 +29,6 @@ class StockGainsUseCase {
             },
         });
 
-        console.log(stockData);
-
         if (!data || !stockApi)
             throw new AppError(
                 'Cant connect with external API, wait and try again',

@@ -18,12 +18,10 @@ describe('Fetch Stock Quote', () => {
     it('Should not be able to fetch stock quote with a invalid symbol', async () => {
         const apiSpy = jest.spyOn(stockApi, 'get');
 
-        await expect(fetchStockUserCase.execute('ashjdj')).rejects.toEqual(
-            new AppError('Stock does not exists') ||
-                new AppError(
-                    'Cant connect with external API, wait and try again',
-                ),
-        );
+        await expect(
+            fetchStockUserCase.execute('ashjdj'),
+        ).rejects.toBeInstanceOf(AppError);
+
         expect(apiSpy).toBeCalled();
     });
 });
