@@ -19,7 +19,10 @@ describe('Fetch Stock Quote', () => {
         const apiSpy = jest.spyOn(stockApi, 'get');
 
         await expect(fetchStockUserCase.execute('ashjdj')).rejects.toEqual(
-            new AppError('Stock does not exists'),
+            new AppError('Stock does not exists') ||
+                new AppError(
+                    'Cant connect with external API, wait and try again',
+                ),
         );
         expect(apiSpy).toBeCalled();
     });
