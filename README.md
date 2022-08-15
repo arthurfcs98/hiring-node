@@ -1,29 +1,78 @@
-# Descrição
+<!-- GETTING STARTED -->
 
-Uma corretora de ações está desenvolvendo um sistema para permitir que pequenos investidores possam tomar decisões melhores sobre seu portfólio. Uma das funcionalidades importantes é a de verificar o desempenho de uma ação nos seguintes cenários:
+## Getting Started
 
-   - Preço atual;
-   - Preço histórico;
-   - Preço atual em comparação a outras ações;
-   - Projeção de ganhos com compra em data específica.
+### Pré-requisitos
 
-Para isso, a equipe de software da empresa optou por desenvolver duas aplicações: um serviço de backend especializado nesses requisitos (que permitirá que essas funcionalidades sejam reutilizadas em outros produtos da empresa) e um dashboard configurável que dará visibilidade aos dados. Sua missão para este teste é implementar o backend dessas partes.
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-A ideia é implementar algo simples, sem preocupações com dividendos, taxas administrativas ou outras incumbências que afetariam o montante total. Sendo assim, pressuponha que a compradora deseja saber o quanto teria ganhado ou perdido se tivesse investido seu dinheiro numa determinada quantidade de ações de uma empresa em alguma data no passado.
+### Instalação
 
-# Requisitos técnicos da solução
+1. Clone o repositorio
+   ```sh
+   git clone https://github.com/arthurfcs98/hiring-node.git
+   ```
+2. Entre na pasta server
+   ```sh
+   cd ./server/
+   ```
+3. Instale as dependencias
+   ```sh
+   npm install
+   ```
+4. Inicie a aplicação
+   ```sh
+    npm run dev
+   ```
+5. Em outro terminal entre no diretorio do repositorio e depois entre na pasta client
+   ```sh
+   cd ./client/
+   ```
+6. Instale as dependencias
+   ```sh
+   npm install
+   ```
+7. Inicie a aplicação
+   ```sh
+    npm run start
+   ```
+   Desse modo a aplicação estara rodando, tanto o backend como o frontend
 
-- O serviço deverá ser implementado via HTTP, e o formato de serialização das requisições e respostas será JSON.
-- O backend deverá ser implementado em nodejs, seja com `http` puro, seja com framework de sua escolha.
-- O frontend será uma single-page application (SPA) já desenvolvido, você precisará apenas criar o backend e fazer a conexão entre as duas plataformas. Mas caso queira criar um frontend também fique à vontade.
-- Sua solução deverá ter testes automatizados.
-- Para obter dados de ações, você poderá usar o Alpha Vantage (https://www.alphavantage.co).
-- Ao final do desafio você deve enviar prints das telas funcionando.
-- O tratamento de erros não será explicitado nos endpoints. O candidato ou candidata poderá inferir casos que poderão gerar erros ou duplicidades nos dados, e tratá-los de acordo. A ausência de tratamento não desqualifica a proposta; a presença, no entanto, contará pontos a favor.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Como enviar sua proposta
+## In Usage
 
-- Clone esse repositório (Você pode utilizar o frontend que ja está desenvolvido);
-- Implemente sua solução, fazendo commits da maneira que faria em um projeto profissional;
-- Substitua este README com um específico para sua aplicação, indicando como rodá-la, e como executar os testes (fique à vontade para inserir mais detalhes técnicos, caso deseje, isso conta pontos à favor);
-- Nos envie o link do seu desafio finalizado, juntamente com os prints de tela.
+Page 1 <br>
+![print page 1](screenshots/page1.png)<br>
+Page 2 <br>
+![print page 2](screenshots/page2.png)<br>
+Page 3 <br>
+![print page 3](screenshots/page3.png)<br>
+Page 4 <br>
+![print page 4](screenshots/page4.png)<br>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+##Tests
+
+1. Entre na pasta server
+   ```sh
+   cd ./server/
+   ```
+2. Execute o arquivo teste em específico
+   ```sh
+   npm run test example.spec.ts
+   ```
+   PS:
+   A API de consulta utilizada possui uma limitação de requisições por minuto, desse modo os testes necessitam ser rodados separadamente e com periodo de 1 minuto pelo menos.
+
+## Contact
+
+Your Name - cesarinoarthur@gmail.com
+
+Project Link: [https://github.com/arthurfcs98/hiring-node](https://github.com/hiring/hiring-node)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
