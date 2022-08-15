@@ -23,13 +23,7 @@ describe('Stock Gains Use Case', () => {
 
         await expect(
             stockGainsUseCase.execute('IBM', 299, '2022-07-23'),
-        ).rejects.toEqual(
-            new AppError('Invalid purchase date!') ||
-                new AppError(
-                    'Cant connect with external API, wait and try again',
-                ),
-        );
-
+        ).rejects.toBeInstanceOf(AppError);
         expect(apiSpy).toBeCalled();
     });
 });
